@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">抢华为笔记本</string>
+    <string name="action_settings">开抢</string>
+    <string name="action_stop">关闭服务</string>
+</resources>
