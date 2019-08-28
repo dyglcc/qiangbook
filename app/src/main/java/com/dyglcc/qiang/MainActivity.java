@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    public static String packageName = "com.abtestdemo";
+    public static String packageName = "com.jingdong.app.mall";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

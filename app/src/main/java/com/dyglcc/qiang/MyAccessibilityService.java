@@ -49,11 +49,11 @@ public class MyAccessibilityService extends AccessibilityService {
         if (nodeInfo == null) {
             return;
         }
-        if (AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED == event.getEventType()) {
-            setNodeClick(nodeInfo, BaseContact.text_find);
-            setNodeClick(nodeInfo, BaseContact.text_friend_circle);
-            Log.e("---tag--", "type=" + event.getEventType() + ",---clsName--" + clsName + ",---desc--" + desc + ",---kText--" + kText);
-        }
+//        if (AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED == event.getEventType()) {
+        setNodeClick(nodeInfo, BaseContact.text_find);
+        setNodeClick(nodeInfo, BaseContact.text_friend_circle);
+        Log.e("---tag--", "type=" + event.getEventType() + ",---clsName--" + clsName + ",---desc--" + desc + ",---kText--" + kText);
+//        }
     }
 
     @Override
@@ -69,6 +69,7 @@ public class MyAccessibilityService extends AccessibilityService {
     private void setNodeClick(AccessibilityNodeInfo nodeInfo, String text) {
         AccessibilityNodeInfo info = NodeUtils.findNodeByParentClick(nodeInfo, text);
         if (info != null) {
+            Log.e("---tagaaa--", "type=" + text);
             info.performAction(AccessibilityNodeInfo.ACTION_CLICK);
         }
     }
