@@ -58,11 +58,12 @@ public class NodeUtils {
             return null;
         }
         AccessibilityNodeInfo resultNode = null;
-        String nodeText;
-        String nodeDesc;
+        CharSequence nodeText;
+        CharSequence nodeDesc;
         for (AccessibilityNodeInfo node : list) {
-            nodeText = node.getText().toString();
-            nodeDesc = node.getContentDescription().toString();
+            nodeText = node.getText();
+            nodeDesc = node.getContentDescription();
+            Log.i("---tag--", "findNodeInfosByText: " + nodeText + " nodedesc" + nodeDesc);
             if (TextUtils.isEmpty(nodeText) && TextUtils.isEmpty(nodeDesc)) {
                 continue;
             }
@@ -70,7 +71,7 @@ public class NodeUtils {
                 resultNode = node;
                 break;
             }
-            if (nodeDesc.equals(text)) {
+            if (nodeDesc != null && nodeDesc.equals(text)) {
                 resultNode = node;
                 break;
             }

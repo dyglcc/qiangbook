@@ -5,9 +5,9 @@ package com.dyglcc.qiang;
  */
 class BaseContact {
 
-    public static String clsName_Main = "com.tencent.mm.ui.LauncherUI";
-    public static String clsName_listView = "android.widget.ListView";
+    public static String clsName_Main = "android.widget.FrameLayout";
+    public static String clsName_listView = "android.widget.ScrollView";
 
-    public static final String text_find = "发现";
-    public static final String text_friend_circle = "朋友圈";
+    public static final String text_find = "INSTANT UPDATE";
+    public static final String text_friend_circle = "弹窗";
 }

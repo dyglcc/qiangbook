@@ -42,7 +42,6 @@ public class MyAccessibilityService extends AccessibilityService {
         String desc = event.getContentDescription() != null ? event.getContentDescription().toString() : "";
         String kText = event.getText() != null ? event.getText().toString() : "";
 
-        Log.e("---tag--", "type=" + event.getEventType() + ",---clsName--" + clsName + ",---desc--" + desc + ",---kText--" + kText);
         if (!pkgName.equals(MainActivity.packageName)) {
             return;
         }
@@ -50,14 +49,10 @@ public class MyAccessibilityService extends AccessibilityService {
         if (nodeInfo == null) {
             return;
         }
-
-        if (pkgName.equals(MainActivity.packageName)) {
-            if (clsName.equals(BaseContact.clsName_Main) && event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
-                setNodeClick(nodeInfo, BaseContact.text_find);
-
-            } else if (clsName.equals(BaseContact.clsName_listView) && event.getEventType() == AccessibilityEvent.TYPE_VIEW_FOCUSED) {
-                setNodeClick(nodeInfo, BaseContact.text_friend_circle);
-            }
+        if (AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED == event.getEventType()) {
+            setNodeClick(nodeInfo, BaseContact.text_find);
+            setNodeClick(nodeInfo, BaseContact.text_friend_circle);
+            Log.e("---tag--", "type=" + event.getEventType() + ",---clsName--" + clsName + ",---desc--" + desc + ",---kText--" + kText);
         }
     }
 
